@@ -11,7 +11,15 @@
 angular.module('publicApp')
   .factory('Room', function ($rootScope, $q, Io, config) {
 
-    var iceConfig = { 'iceServers': [{url:"stun:130.211.147.65:1352"},{url:"turn:130.211.147.65:1352?transport=udp"},{url:"turn:130.211.147.65:1352?transport=tcp"}], 'iceTransports': "relay"},
+    var iceConfig = {
+                  iceServers: [
+                    {url:'stun:130.211.147.65:1352'},
+                    {url:'turn:130.211.147.65:1352?transport=udp'},
+                    {url:'turn:130.211.147.65:1352?transport=tcp'},
+                    {url:'turn:numb.viagenie.ca', username: 'tim@cloud.com', credential: '3oRZgIwu3zpOGvjvv8NH'}
+                  ],
+                  iceTransports: 'relay'
+                },
         peerConnections = {},
         currentId, roomId,
         stream;
