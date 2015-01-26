@@ -11,7 +11,7 @@
 angular.module('publicApp')
   .factory('Room', function ($rootScope, $q, Io, config) {
 
-    var iceConfig = { 'iceServers': [{ 'url': 'stun:130.211.147.65:1352' },{'url': 'turn:130.211.147.65:1352?transport=udp'},{'url': 'turn:130.211.147.65:1352?transport=tcp'}]},
+    var iceConfig = { 'iceServers': [{ 'url': 'stun:stun.l.google.com:19302' }]},
         peerConnections = {},
         currentId, roomId,
         stream;
